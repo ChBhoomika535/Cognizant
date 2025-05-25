@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Demo</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 20px; }
+        .container { background: white ; padding: 20px; }
+        button { padding: 10px; background: green ; color: white; margin: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Registration</h1>
+        <p>Enter your name:</p>
+        <input id="userName" type="text" placeholder="Your name">
+        <button id="submitBtn" onclick="showGreeting()">Submit</button>
+        <p id="greeting"></p>
+    </div>
+
+    <script>
+        function showGreeting() {
+            let name = document.getElementById('userName').value;
+            console.log('Name entered:', name);
+            let message = name ? 'Hello, ' + name : 'Please enter a name';
+            document.getElementById('greeting').innerText = message;
+        }
+    </script>
+</body>
+</html>

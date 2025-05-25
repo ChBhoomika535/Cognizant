@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Promo Video</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    /* Message shown when video is ready */
+    #message {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Smaller video size */
+    video {
+      width: 300px;
+      height: 180px;
+      border: 1px solid #ccc;
+    
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Promo</h2>
+
+  <!-- Video with oncanplay event -->
+  <video controls oncanplay="document.getElementById('message').textContent = '✅ Video ready to play!';">
+    <source src="promo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Message will appear here -->
+  <div id="message"></div>
+
+  <!-- Warn user before leaving the page -->
+  <script>
+    window.onbeforeunload = function () {
+      return true; // This triggers the default browser warning
+    };
+  </script>
+
+</body>
+</html>

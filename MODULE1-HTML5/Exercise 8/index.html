@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Type Preferences</title>
+    <style>
+        body { 
+          font-family: Arial; 
+          text-align: center; 
+          margin: 20px; 
+        }
+        select, button { 
+          padding: 8px; 
+          margin: 10px; 
+        }
+        button { 
+          background-color: red; 
+          color: white; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Pick an Event</h1>
+    <form>
+        <select id="eventType" onchange="localStorage.setItem('event', this.value)">
+            <option value="">Choose one</option>
+            <option value="Singing">Singing</option>
+            <option value="Dancing">Dancing</option>
+            <option value="Painting">Painting</option>
+        </select>
+        <br>
+        <button type="button" onclick="localStorage.clear(); sessionStorage.clear(); document.getElementById('eventType').value=''">Clear Choice</button>
+    </form>
+    <p id="status">No saved choice.</p>
+
+    <script>
+        // Load saved event type when page opens
+        let saved = localStorage.getItem('event');
+        if (saved) {
+            document.getElementById('eventType').value = saved;
+            document.getElementById('status').innerText = 'Your choice: ' + saved;
+        }
+    </script>
+</body>
+</html>

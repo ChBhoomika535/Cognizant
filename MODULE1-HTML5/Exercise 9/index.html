@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Location</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 20px; }
+        button { padding: 10px; background: blue ; color: white; }
+        p { margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Find Nearby Events</h1>
+    <button onclick="navigator.geolocation.getCurrentPosition(
+        pos => document.getElementById('result').innerText = `Location: Lat ${pos.coords.latitude.toFixed(2)}, Lon ${pos.coords.longitude.toFixed(2)}`,
+        err => document.getElementById('result').innerText = err.code === 1 ? 'Please allow location access.' : 'Timeout or error. Try again.',
+        {enableHighAccuracy: true, timeout: 10000, maximumAge: 0}
+    )">Find Nearby Events</button>
+    <p id="result">Click the button to get your location.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      padding: 30px;
+      background-color: lavender;
+    }
+
+    form {
+      padding: 10px;
+      background-color: white;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: dimgray;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+
+    output {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:left">Event Registration Form</h2>
+  <form id="eventForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required autofocus>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+
+    <label for="date">Event Date</label>
+    <input type="date" id="date" name="date" placeholder="Select event date" required>
+
+    <label for="eventType">Event Type</label>
+    <select id="eventType" name="eventType" required>
+      <option value="">-- Select an event --</option>
+      <option value="dancing">Dancing</option>
+      <option value="singing">Singing</option>
+      <option value="playing a skit">Playing a Skit</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Give your feedback" required></textarea>
+
+    <button type="submit" onclick="showMessage(event)">Submit</button>
+    <output name="confirmation" for="name email date eventType message">Registration submitted successfully!</output>
+  </form>
+  <script>
+    function showMessage(e) {
+      e.preventDefault();
+      if (document.getElementById('eventForm').checkValidity()) {
+        document.querySelector('output').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

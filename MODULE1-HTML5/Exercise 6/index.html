@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: 'Times New Roman'; 
+  max-width: 400px; 
+  margin: 20px auto; 
+  padding: 0 10px;
+}
+input, select, textarea, button {
+  width: 100%; 
+  margin: 6px 0; 
+  padding: 6px;
+  box-sizing: border-box;
+}
+button { 
+  background: blue; 
+  color: white; 
+  border: none; 
+  cursor: pointer;
+ }
+div { font-size: 0.9rem; color: green; }
+img {
+  display: block; 
+  margin: 20px auto 0; 
+  width: 250px; 
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+</style>
+<script>
+function validatePhone(input) {
+  const isValid = /D/$10.test(input.value);
+  if (!isValid) alert("Invalid phone number");
+}
+</script>
+</head>
+<body>
+<form onsubmit="return false">
+Phone: <input onblur="validatePhone(this)">
+Event: <select onchange="this.nextSibling.textContent='Fee: $'+{Dancing:40,Singing:25,Painting:60,Photography:55}[this.value]">
+  <option disabled selected>Select</option><option value="Dancing">Dancing</option><option value="Singing">Singing</option>
+  <option value="Painting">Painting</option><option value="Photography">Photography</option>
+</select><div></div>
+Feedback: <textarea onkeyup="this.nextSibling.textContent=this.value.length+' chars'"></textarea><div></div>
+<button onclick="alert('Feedback submitted')">Submit</button>
+<img src="community.jpg" ondblclick="this.style.transform=this.style.transform?'':'scale(1.8)'">
+</form>
+</body>
+</html>
